@@ -10,13 +10,13 @@ class Formatter {
     let exceptions = ['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from'] 
     
      let formatted = string.split(' ').map(word => {
-      if (!exceptions.includes(word)){
-        return word[0].toUpperCase() + word.slice(1)
-      }
-      return word
+        if (!exceptions.includes(word)){
+          return this.capitalize(word)
+
+        }
+        return word
     }).join(' ')
-    return formatted[0].toUpperCase() + formatted.slice(1)
+    return this.capitalize(formatted)
   }
 } 
 
-console.log(Formatter.sanitize("a hl-lo 'everybody' the movement a"))
