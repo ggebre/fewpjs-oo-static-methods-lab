@@ -11,12 +11,13 @@ class Formatter {
     
      let formatted = string.split(' ').map(word => {
       if (!exceptions.includes(word)){
-        return word[0].toUpperCase() + word.slice(1)
+        return this.capitalize(word)
+
       }
       return word
     }).join(' ')
-    return formatted[0].toUpperCase() + formatted.slice(1)
+    return this.capitalize(formatted)
   }
 } 
 
-console.log(Formatter.sanitize("a hl-lo 'everybody' the movement a"))
+console.log(Formatter.titleize("a hl-lo 'everybody' the movement a"))
